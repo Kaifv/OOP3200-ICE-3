@@ -3,11 +3,13 @@
  * @author Kaifkhan Vakil
  */
 
+#pragma once
 
 #ifndef _PROFESSOR_H
 #define _PROFESSOR_H
 
 #include "Person.h"
+#include <string>
 
 
 class Professor: public Person {
@@ -19,7 +21,7 @@ public:
  * @param age
  * @param emmployee_id
  */
-void Professor(string first_name, string last_name, float age, string emmployee_id);
+ Professor(string first_name, string last_name, float age, string emmployee_id);
     
 string getEmployeeID();
     
@@ -30,7 +32,7 @@ void setEmployeeID(string value);
     
 void Teaches();
     
-string ToString();
+string ToString() override;
 private: 
     string m_employeeID;
 };

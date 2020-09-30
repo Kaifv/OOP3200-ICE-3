@@ -22,7 +22,7 @@
  * @param student_id
  */
 Student::Student(string first_name, string last_name, float age, string student_id)
-    :Person(std::move(first_name), std::move(last_name), age), student_id_(std::move(student_id))
+    :Person(std::move(first_name), std::move(last_name), age), m_studentID(std::move(student_id))
 {
 
 }
