@@ -23,18 +23,19 @@ public:
  */
  Professor(string first_name, string last_name, float age, string emmployee_id);
     
-string getEmployeeID();
+string getEmployeeID() const;
     
 /**
  * @param value
  */
 void setEmployeeID(string value);
     
-void Teaches();
+void Teaches() const;
     
 string ToString() override;
 private: 
     string m_employeeID;
+string emmployee_id_;
 };
 
 #endif //_PROFESSOR_H

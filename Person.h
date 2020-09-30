@@ -26,29 +26,28 @@ float getAge();
  */
 void setAge(float value);
     
-string getFirstName();
+string getFirstName() const;
     
 /**
  * @param value
  */
 void setFirstName(string value);
     
-string getLastName();
+string getLastName() const;
     
 /**
  * @param value
  */
 void setLastName(string value);
     
-void Sayshello();
+void Sayshello() const;
     
 virtual string ToString();
 private: 
     float m_age;
     string m_firstName;
     string m_lastName;
-string first_name_;
-string last_name_;
+
 };
 
 #endif //_PERSON_H

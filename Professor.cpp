@@ -22,7 +22,7 @@
  * @param emmployee_id
  */
 Professor::Professor(string first_name, string last_name, const float age, string emmployee_id)
-	:Person(std::move(first_name), std::move(last_name), age), m_employeeID()
+	:Person(std::move(first_name), std::move(last_name), age), m_employeeID(), emmployee_id_(std::move(emmployee_id))
 {
 
 }
@@ -30,7 +30,7 @@ Professor::Professor(string first_name, string last_name, const float age, strin
 /**
  * @return string
  */
-string Professor::getEmployeeID() 
+string Professor::getEmployeeID() const
 {
     return m_employeeID;
 }
@@ -40,13 +40,14 @@ string Professor::getEmployeeID()
  */
 void Professor::setEmployeeID(string value)
 {
-    m_employeeID = value;
+    m_employeeID = std::move(value);
 }
 
 /**
  * @return void
  */
-void Professor::Teaches() {
+void Professor::Teaches() const
+{
   cout << getFirstName() << " is teaching" << endl;
 }
 
@@ -59,7 +60,7 @@ string Professor::ToString()
 
     output_string += Person::ToString();
     output_string += "----------------------------------\n";
-    output_string += "First name: " + getEmployeeID() + "\n";
+    output_string += "employee Id " + getEmployeeID() + "\n";
     output_string += "----------------------------------\n";
 
     return output_string;

@@ -7,6 +7,7 @@
 #include "Person.h"
 
 #include <iostream>
+#include <utility>
 
 /**
  * Person implementation
@@ -19,7 +20,7 @@
  * @param age
  */
  Person::Person(string first_name, string last_name, float age)
-        : first_name_(std::move(first_name)), last_name_(std::move(last_name)), m_age(age)
+        : m_firstName(std::move(first_name)), m_lastName(std::move(last_name)), m_age(age)
  {
 
  }
@@ -41,7 +42,7 @@ void Person::setAge(const float value) {
 /**
  * @return string
  */
-string Person::getFirstName() 
+string Person::getFirstName() const
 {
     return m_firstName;
 }
@@ -50,13 +51,14 @@ string Person::getFirstName()
  * @param value
  */
 void Person::setFirstName(string value) {
-    m_firstName = value;
+    m_firstName = std::move(value);
 }
 
 /**
  * @return string
  */
-string Person::getLastName() {
+string Person::getLastName() const
+{
     return m_lastName;
 }
 
@@ -70,7 +72,8 @@ void Person::setLastName( string value) {
 /**
  * @return void
  */
-void Person::Sayshello() {
+void Person::Sayshello() const
+{
     cout << getFirstName() << " says hello" << std::endl;
 }
 
@@ -81,7 +84,7 @@ void Person::Sayshello() {
  */
 string Person::ToString()
 {
-    std::string output_string = "";
+    std::string output_string;
 
     output_string += "----------------------------------\n";
     output_string += "First name: " + getFirstName() + "\n";
